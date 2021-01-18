@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CSS_Class__c</fullName>
+    <defaultValue>&quot;slds-text-body_regular&quot;</defaultValue>
+    <description>Populating from standard SF CCS text Classes from link below. Please update the picklist if necessary 
+
+https://spring-20.lightningdesignsystem.com/utilities/text/</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>CSS Class</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>slds-text-body_regular</fullName>
+                <default>true</default>
+                <label>slds-text-body_regular</label>
+            </value>
+            <value>
+                <fullName>slds-text-body_small</fullName>
+                <default>false</default>
+                <label>slds-text-body_small</label>
+            </value>
+            <value>
+                <fullName>slds-text-heading_large</fullName>
+                <default>false</default>
+                <label>slds-text-heading_large</label>
+            </value>
+            <value>
+                <fullName>slds-text-heading_medium</fullName>
+                <default>false</default>
+                <label>slds-text-heading_medium</label>
+            </value>
+            <value>
+                <fullName>slds-text-heading_small</fullName>
+                <default>false</default>
+                <label>slds-text-heading_small</label>
+            </value>
+            <value>
+                <fullName>slds-text-title</fullName>
+                <default>false</default>
+                <label>slds-text-title</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

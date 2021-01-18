@@ -1,0 +1,24 @@
+{
+    "packageDirectories": [
+        {
+            "path": "force-app",
+            "default": true,
+            "package": "CGSContactInfo",
+            "versionName": "ver 0.1",
+            "versionNumber": "0.1.0.NEXT"
+        }
+    ],
+    "namespace": "",
+    "sfdcLoginUrl": "https://login.salesforce.com",
+    "sourceApiVersion": "50.0",
+    "packageAliases": {
+        "CGSContactInfo": "0Ho3i000000PAznCAG",
+        "CGSContactInfo-01": "0Ho5w000000k9wbCAA",
+        "CGSContactInfo@0.1.0-1": "04t3i000002al7VAAQ",
+        "CGSContactInfo@0.1.0-2": "04t3i000002alBnAAI",
+        "CGSContactInfo@0.1.0-3": "04t3i000002alClAAI",
+        "CGSContactInfo@0.1.0-4": "04t3i000002alCqAAI",
+        "CGSContactInfo@0.1.0-5": "04t3i000002alDAAAY",
+        "CGSContactInfo@0.1.0-6": "04t3i000002alDeAAI"
+    }
+}

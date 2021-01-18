@@ -1,0 +1,136 @@
+<template>
+    <lightning-card>
+        <div class="slds-var-m-around_medium">
+            <ul class="slds-m-around_medium">
+                <template for:each={cRecords} for:item="cInfo">
+                    <li key={cInfo.Id}>
+                        <div class={cInfo.CSS_Class__c} style="text-align:center">
+                            <template if:true={cInfo.Hide_Label__c}>
+                                <template if:true={cInfo.Bold__c}>
+                                    <b>{cInfo.Value__c}</b>
+                                </template>
+                                <template if:false={cInfo.Bold__c}>
+                                    {cInfo.Value__c}
+                                </template>
+                            </template>
+                            <template if:false={cInfo.Hide_Label__c}>
+                                <template if:true={cInfo.Bold__c}>
+                                    <b>{cInfo.MasterLabel}: {cInfo.Value__c}</b>
+                                </template>
+                                <template if:false={cInfo.Bold__c}>
+                                    {cInfo.MasterLabel}: {cInfo.Value__c}
+                                </template>
+                            </template>
+                        </div>
+                    </li>
+                </template>
+    
+                <template if:true={editAllow}>
+                    <br/>
+                    <div style="text-align: center;">
+                        <lightning-button variant="brand"
+                        label="Edit Record"
+                        title="Edit Record"
+                        onclick={openModal}
+                        class="slds-m-left_x-small">
+                    </lightning-button>
+                    </div>
+                </template>
+            </ul>    
+        </div>
+
+        <div>
+            <template if:true={isModalOpen}>
+                <!-- Modal/Popup Box LWC starts here -->
+                <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                    <div class="slds-modal__container">
+                        <!-- Modal/Popup Box LWC header here -->
+                        <header class="slds-modal__header">
+                            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                                <lightning-icon icon-name="utility:close"
+                                    alternative-text="close"
+                                    variant="inverse"
+                                    size="small" ></lightning-icon>
+                                <span class="slds-assistive-text">Close</span>
+                            </button>
+                            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">RRMP Contact Information</h2>
+                        </header>
+                        
+                        <!-- Modal/Popup Box LWC body starts here -->
+                        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">                            
+                            <ul class="slds-m-around_medium">                  
+                                <template for:each={cRecords} for:item="cInfo">
+                                    <li key={cInfo.Id}>
+                                        <div>
+                                            <table>
+                                                <tr>
+                                                    <td colspan="4">
+                                                        <lightning-input id={cInfo.Id}
+                                                            name={cInfo.DeveloperName}
+                                                            value={cInfo.Value__c} 
+                                                            type={cInfo.Type__c} 
+                                                            label={cInfo.MasterLabel} 
+                                                            onchange={handleFieldChange}>
+                                                        </lightning-input>
+                                                        {cInfo.CSS_Class__c}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <lightning-input id={cInfo.Id}
+                                                            name={cInfo.DeveloperName}
+                                                            checked={cInfo.Bold__c} 
+                                                            type="CheckBox" 
+                                                            label="Bold" 
+                                                            onchange={handleFieldBoldChange}>
+                                                        </lightning-input>
+                                                    </td>
+                                                    <td>
+                                                        <lightning-input id={cInfo.Id}
+                                                            name={cInfo.DeveloperName}
+                                                            checked={cInfo.Hide_Label__c} 
+                                                            type="CheckBox" 
+                                                            label="Hide Label" 
+                                                            onchange={handleFieldHideLabelChange}>
+                                                        </lightning-input>
+                                                    </td>
+                                                    <td>
+                                                        <lightning-combobox id={cInfo.Id}
+                                                            name={cInfo.DeveloperName}
+                                                            value={cInfo.CSS_Class__c}
+                                                            onchange={handleFieldCSSClassChange}
+                                                            label="CSS Class" 
+                                                            options={CSSOptions}>
+                                                        </lightning-combobox>
+                                                    </td>
+                                                    <td>
+                                                        <lightning-input id={cInfo.Id}
+                                                            name={cInfo.DeveloperName}
+                                                            value={cInfo.Sequence__c} 
+                                                            type="Number" 
+                                                            label="Sequence" 
+                                                            onchange={handleFieldSequenceChange}>
+                                                        </lightning-input>
+                                                    </td>
+                                                </tr>    
+                                            </table>    
+                                            
+                                        </div>
+                                    </li>
+                                </template>
+                            </ul> 
+                        </div>
+                        <!-- Modal/Popup Box LWC footer starts here -->
+                        <footer class="slds-modal__footer">
+                            <button class="slds-button slds-button_neutral" onclick={cancel} title="Cancel">Cancel</button>
+                            <button class="slds-button slds-button_brand" onclick={submit} title="OK">OK</button>
+                        </footer>
+                    </div>
+                </section>
+                <div class="slds-backdrop slds-backdrop_open"></div>
+            </template>
+        </div>
+        
+    </lightning-card>
+
+</template>

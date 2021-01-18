@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+	<types>
+		<members>Contact_Information_Detail.AnyField1_Message</members>
+		<members>Contact_Information_Detail.AnyField2_Message</members>
+		<members>Contact_Information_Detail.AnyField3_Message</members>
+		<members>Contact_Information_Detail.BRContact_Email</members>
+		<members>Contact_Information_Detail.BRContact_Phone</members>
+		<members>Contact_Information_Detail.BRFax_Number</members>
+		<members>Contact_Information_Detail.BRMessage</members>
+		<members>Contact_Information_Detail.DIFax_Number</members>
+		<members>Contact_Information_Detail.DIMessage</members>
+		<members>Contact_Information_Detail.DNCMessage</members>
+		<members>Contact_Information_Header.Any_Info</members>
+		<members>Contact_Information_Header.Broker</members>
+		<members>Contact_Information_Header.DI</members>
+		<members>Contact_Information_Header.NDC</members>
+		<name>CustomMetadata</name>
+	</types>
+	<types>
+		<members>Contact_Information_Detail__mdt</members>
+		<members>Contact_Information_Header__mdt</members>
+		<name>CustomObject</name>
+	</types>
+	<types>
+		<members>Edit_Contact_Information</members>
+		<name>CustomPermission</name>
+	</types>
+	<types>
+		<members>Contact_Information_Detail__mdt-Contact Information Detail Layout</members>
+		<members>Contact_Information_Header__mdt-Contact Information Header Layout</members>
+		<name>Layout</name>
+	</types>
+	<types>
+		<members>CGS_Contact_Information</members>
+		<name>PermissionSet</name>
+	</types>
+	<version>50.0</version>
+</Package>

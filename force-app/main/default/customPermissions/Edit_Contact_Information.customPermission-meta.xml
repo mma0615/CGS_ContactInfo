@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomPermission xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Allow Editing Contact Information</description>
+    <isLicensed>false</isLicensed>
+    <label>Edit Contact Information</label>
+</CustomPermission>
