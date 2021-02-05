@@ -14,6 +14,7 @@ export default class CGS_ContactInfo extends LightningElement
     fieldsHideLabelToUpdate = {};
     fieldsSequenceToUpdate = {};
     fieldsCSSClassToUpdate = {};
+    allowEditOnTheFly = false;
 
     CSSOptions = [];
 
@@ -143,6 +144,10 @@ export default class CGS_ContactInfo extends LightningElement
     populateData(record) 
        {
         var tempRecord = JSON.parse(JSON.stringify(record));
+
+        this.allowEditOnTheFly = false;
+        if (this.editAllow && tempRecord.allowEditOnTheFly)
+            this.allowEditOnTheFly = true;
 
         this.CSSOptions = [];
         var tempCSSOptions = tempRecord.CSSOptions;

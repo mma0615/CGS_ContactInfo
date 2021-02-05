@@ -25,6 +25,21 @@
                 <default>false</default>
                 <label>Phone</label>
             </value>
+            <value>
+                <fullName>Date</fullName>
+                <default>false</default>
+                <label>Date</label>
+            </value>
+            <value>
+                <fullName>DateTime</fullName>
+                <default>false</default>
+                <label>DateTime</label>
+            </value>
+            <value>
+                <fullName>DataTable</fullName>
+                <default>false</default>
+                <label>DataTable</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>

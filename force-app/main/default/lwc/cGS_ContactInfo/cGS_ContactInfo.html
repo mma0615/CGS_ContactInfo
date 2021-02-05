@@ -1,6 +1,6 @@
 <template>
     <lightning-card>
-        <div class="slds-var-m-around_medium">
+        <div class="slds-var-m-around_medium" style="word-wrap: break-word">
             <ul class="slds-m-around_medium">
                 <template for:each={cRecords} for:item="cInfo">
                     <li key={cInfo.Id}>
@@ -25,7 +25,7 @@
                     </li>
                 </template>
     
-                <template if:true={editAllow}>
+                <template if:true={allowEditOnTheFly}>
                     <br/>
                     <div style="text-align: center;">
                         <lightning-button variant="brand"

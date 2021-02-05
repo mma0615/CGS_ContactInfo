@@ -39,9 +39,11 @@ public with sharing class CGS_ContactInfoController implements Metadata.DeployCa
 
         System.debug('getRecords ==> oLWCData.CSSOptions: '+ oLWCData.CSSOptions);
         
-        List<Contact_Information_Header__mdt> CIH_MDTList = 
-            [select id, MasterLabel from Contact_Information_Header__mdt];
-            
+        //List<Contact_Information_Header__mdt> CIH_MDTList = 
+        //    [select id, MasterLabel, Allow_Edit_on_the_Fly__c from Contact_Information_Header__mdt];
+        oLWCData.allowEditOnTheFly = [select id, Allow_Edit_on_the_Fly__c from Contact_Information_Header__mdt
+            where id = :contactInfoId][0].Allow_Edit_on_the_Fly__c;
+
         oLWCData.ContactInfoDetailList =  
             [select id, MasterLabel, DeveloperName, Type__c, Sequence__c, Value__c, 
                 Hide_Label__c, CSS_Class__c, Bold__c
@@ -53,7 +55,6 @@ public with sharing class CGS_ContactInfoController implements Metadata.DeployCa
         
         System.debug('getRecords ==> oLWCData: ' + oLWCData);
         return oLWCData;
-
     }
 
     @AuraEnabled
@@ -158,7 +159,7 @@ public with sharing class CGS_ContactInfoController implements Metadata.DeployCa
         Metadata.DeployContainer mdContainer = new Metadata.DeployContainer();
         mdContainer.addMetadata(cMetadata);
         CGS_ContactInfoController callback = new CGS_ContactInfoController();
-        Id jobId = Test.isRunningTest() ? 'Fake Job Id' : Metadata.Operations.enqueueDeployment(mdContainer, callback);
+        Id jobId = Test.isRunningTest() ? null : Metadata.Operations.enqueueDeployment(mdContainer, callback);
 
     }
         
@@ -168,6 +169,7 @@ public with sharing class CGS_ContactInfoController implements Metadata.DeployCa
     public with sharing class lwcData 
     {
         @AuraEnabled public string contactInfo;
+        @AuraEnabled public Boolean allowEditOnTheFly;
         @AuraEnabled public List<String> CSSOptions;
         @AuraEnabled public List<Contact_Information_Detail__mdt> ContactInfoDetailList;
 

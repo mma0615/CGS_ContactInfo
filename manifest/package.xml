@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
+		<members>Contact_Information_Header__mdt.Allow_Edit_on_the_Fly__c</members>
+		<name>CustomField</name>
+	</types>
+	<types>
 		<members>Contact_Information_Detail.AnyField1_Message</members>
 		<members>Contact_Information_Detail.AnyField2_Message</members>
 		<members>Contact_Information_Detail.AnyField3_Message</members>

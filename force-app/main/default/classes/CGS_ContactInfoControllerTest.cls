@@ -5,15 +5,17 @@ public with sharing class CGS_ContactInfoControllerTest
     public static void testCGS_GlobalContactInfo()
     {
         CGS_GlobalContactInfo GContactInfo = new CGS_GlobalContactInfo();
-        GContactInfo.getDefaultValue();
-        GContactInfo.getValues();
+        
+        string defaultValue = string.valueOf(GContactInfo.getDefaultValue());
+        System.assertNotEquals( null, defaultValue, 'No Default Value found' );
+        
+        defaultValue = string.valueOf(GContactInfo.getValues() );
+        System.assertNotEquals( null, defaultValue, 'No Values found' );
     }
 
     @istest
     public static void TestCGS_ContactInfoControllerHandleresult() 
     {
-		
-        
         Test.startTest();
         
         //***** Testing handleresult
@@ -39,8 +41,14 @@ public with sharing class CGS_ContactInfoControllerTest
         
         Test.startTest();
                 
-        //**** Testing getRecords
-        CGS_ContactInfoController.getRecords(CIH_MDTList[0].id);
+        //**** Testing getRecords  
+        //with Valid Id      
+        CGS_ContactInfoController.lwcData lwcData = CGS_ContactInfoController.getRecords(CIH_MDTList[0].id);        
+        System.assertNotEquals( 0, lwcData.ContactInfoDetailList.size(), 'No lwc Data Return' );
+        
+        //with Invalid Id 
+        lwcData = CGS_ContactInfoController.getRecords(null); 
+        System.assertEquals(0, lwcData.ContactInfoDetailList.size(), 'Not lwc Data Return' );
         
         Test.stopTest();
         
@@ -91,7 +99,8 @@ public with sharing class CGS_ContactInfoControllerTest
         System.debug('fieldsCSSClassToUpdate: ' + fieldsCSSClassToUpdate);
         
         CGS_ContactInfoController.updateMetadataContact(fieldsToUpdate, fieldsBoldToUpdate, 
-                                                        fieldsHideLabelToUpdate, fieldsCSSClassToUpdate, fieldsSequenceToUpdate);
+                                                        fieldsHideLabelToUpdate, fieldsCSSClassToUpdate, 
+                                                        fieldsSequenceToUpdate);
         Test.stopTest();
         
     }
