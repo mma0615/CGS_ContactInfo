@@ -1,4 +1,5 @@
 # Installation notes
+
     After installing package.
 
     1. From Setup, enter Schema Settings in the Quick Find box, and make sure that the Restrict access to custom metadata types org permission is enabled.
